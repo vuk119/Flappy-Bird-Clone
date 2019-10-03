@@ -46,7 +46,8 @@ void Bird::update(float elapsedTime)
 	if (m_Lift)
 	{
 		//lift the bird
-		m_Y -= m_LiftImpulse/350;
+		m_Y -= MAX(m_LiftImpulse*elapsedTime,0.3);
+		//std::cout << m_LiftImpulse * elapsedTime<<std::endl;
 		m_NumberOfLifts--; 
 		//adjust the rotation
 		/*if(m_Sprite.getRotation()>330 || m_Sprite.getRotation()<100)
@@ -74,7 +75,7 @@ void Bird::update(float elapsedTime)
 		m_Y = -100;
 
 	//Add oscillations
-	m_Y += (((float)rand()) / (float)RAND_MAX-0.5);
+	//m_Y += (((float)rand()) / (float)RAND_MAX-0.5);
 
 	//Update sprite position
 	m_Sprite.setPosition(m_X, m_Y);

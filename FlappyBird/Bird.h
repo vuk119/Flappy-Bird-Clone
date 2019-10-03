@@ -18,7 +18,7 @@ private:
 	bool type = 0; // 0 for normal bird and 1 for super bird
 
 	const float m_Gravity = 350;
-	const float m_LiftImpulse = 120;
+	const float m_LiftImpulse = 400;
 	const float m_RotationSpeed = 200;
 
 	bool m_Lift;
@@ -36,6 +36,10 @@ public:
 	void lift();
 	void update(float elapsedTime);
 	void fall(float elapsedTime);
+	inline float MAX(float a, float b)
+	{
+		return (a > b) ? a : b;
+	}
 };
 
 #endif
